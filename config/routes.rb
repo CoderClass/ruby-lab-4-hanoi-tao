@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  get 'logout' => 'home#logout'
+  post 'login' => 'home#login'
+
   resources :rooms do
     resources :messages
   end

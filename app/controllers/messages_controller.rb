@@ -12,11 +12,12 @@ class MessagesController < ApplicationController
     @message = Message.new message_params
     @message.room_id = @room.id
 
-    if @message.save!
+    if @message.save
       flash[:success] = 'Send message successfully.'
       redirect_to room_messages_path(@room)
     else
-      flash[:error] = 'There are some errors when send message, please try again.'
+      flash[:error] = @message.errors.full_messages.to_sentence 
+      redirect_to room_messages_path(@room)
     end
   end
 

@@ -8,7 +8,7 @@
 
 <br/>
 <br/>
-<%= form_for [@room, Message.new] do |f| %>
+<%= form_for [@room, @message=Message.new] do |f| %>
   <div class="form-group">
     <%= f.text_field :username, placeholder: "Username", class: "form-control" %>
     <%= f.text_field :content, placeholder: "Content", class: "form-control" %>
