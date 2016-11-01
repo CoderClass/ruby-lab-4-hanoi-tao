@@ -2,9 +2,11 @@
 <br/>
 <br/>
 
-<% @messages.each do |message| %>
-  <strong><%= message.username %></strong>: <%= message.content %>
-<% end %>
+<div class="messages">
+  <% @messages.each do |message| %>
+    <div class='message'><strong><%= message.username %></strong>: <%= message.content %></div>
+  <% end %>
+</div>
 
 <br/>
 <br/>
@@ -17,3 +19,7 @@
     <%= f.submit "Send", class: "btn btn-info" %>
   </div>
 <% end %>
+
+<script>
+  setInterval(updateMessagesViaJSON,3000)
+</script> 
